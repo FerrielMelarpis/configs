@@ -1,0 +1,6 @@
+[module/eth]
+type = internal/network
+interface = enp4s0
+interval = 3.0
+
+; vim:ft=dosini

@@ -1,0 +1,22 @@
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = lock
+menu-0-0-exec = betterlockscreen -l dim
+menu-0-1 = restart
+menu-0-1-exec = reboot
+menu-0-2 = shutdown
+menu-0-2-exec = poweroff
+
+; vim:ft=dosini
