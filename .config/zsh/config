@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+
+export PATH=$PATH:~/.config/composer/vendor/bin
+export TERMINAL=/usr/bin/kitty
+export EDITOR=/usr/bin/nvim
+
+shellScripts=( \
+    "/usr/share/nvm/init-nvm.sh" \
+    "/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" \
+    "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+    "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+    "$HOME/.config/zsh/aliases" \
+    "$HOME/.p10k.zsh" \
+    "$HOME/.fzf.zsh" \
+)
+
+for script in ${shellScripts[@]}; do
+    [ -f $script ] && source $script;
+done
+
+source /usr/share/zsh/scripts/zplug/init.zsh
+# Plugins installed via Zplug should be listed below
+
+zplug "softmoth/zsh-vim-mode"
+
+if ! zplug check --verbose; then
+    if ! read -q "?Install? [Y/n]: "; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+
+# Plugin configurations
+
+## zsh-vim-mode
+bindkey -rpM viins '^[^['
