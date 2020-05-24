@@ -82,6 +82,8 @@ endif
 
 " quick save
 nmap <leader>w :w<CR>
+" quick save and quit
+nmap <leader>wq :wq<CR>
 
 " ===============
 " Plugin settings
@@ -200,7 +202,7 @@ set smartcase
 set gdefault
 
 " ============
-" GUI Settings
+" UI Settings
 " ============
 set ruler
 set ttyfast
